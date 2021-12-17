@@ -33,10 +33,8 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25)
 
 print(x_train.describe())
 sc = StandardScaler()
-print(f'До Z оценки: {x_train.iloc[0, :3]}')
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
-print(f'После Z оценки: {x_train[0, :3]}')
 
 classifier = KNeighborsClassifier(n_neighbors=5)
 classifier.fit(x_train, y_train)
